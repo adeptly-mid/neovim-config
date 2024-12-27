@@ -26,4 +26,4 @@ vim.o.guicursor = "n-v-c:block,i:block"
 vim.cmd([[highlight Cursor guifg=NONE guibg=#1c1c1c]])
 
 -- Load the kanagawa-paper colorscheme
-vim.cmd([[colorscheme roseprime]])
+vim.cmd([[colorscheme vague]])
