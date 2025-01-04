@@ -1,5 +1,5 @@
-require("josean.core")
-require("josean.lazy")
+require("ayush.core.init")
+require("ayush.lazy")
 
 -- Enable true color support
 vim.o.termguicolors = true
