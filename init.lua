@@ -20,10 +20,10 @@ vim.cmd([[highlight Normal guibg=#1c1c1c]])
 -- vim.g.rasmus_transparent = true
 
 -- Set cursor to transparent block in normal mode and solid block in insert mode
-vim.o.guicursor = "n-v-c:block,i:block"
-
+-- Set cursor to solid block in normal mode and blinking block in insert mode
+vim.o.guicursor = "n-v-c:block,i:block-blinkon20-blinkoff15-blinkwait10"
 -- Set the transparency for the Normal mode cursor
 vim.cmd([[highlight Cursor guifg=NONE guibg=#1c1c1c]])
 
 -- Load the kanagawa-paper colorscheme
-vim.cmd([[colorscheme vague]])
+vim.cmd([[colorscheme roseprime]])

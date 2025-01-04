@@ -66,3 +66,6 @@ keymap.set("n", "<leader>tv", "<cmd>vsplit | terminal<CR>", { desc = "Open termi
 
 -- Close current buffer
 keymap.set("n", "zz", "<cmd>bd!<CR>", { desc = "Close current buffer" })
+
+keymap.set("n", "<leader>w+", ":vertical resize +10<CR>", { noremap = true, silent = true }) -- Increase width
+keymap.set("n", "<leader>w-", ":vertical resize -10<CR>", { noremap = true, silent = true }) -- Decrease width
