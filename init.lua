@@ -19,11 +19,14 @@ vim.cmd([[highlight Normal guibg=#1c1c1c]])
 -- vim.g.rasmus_bold_variables = true
 -- vim.g.rasmus_transparent = true
 
--- Set cursor to transparent block in normal mode and solid block in insert mode
--- Set cursor to solid block in normal mode and blinking block in insert mode
-vim.o.guicursor = "n-v-c:block,i:block-blinkon20-blinkoff15-blinkwait10"
--- Set the transparency for the Normal mode cursor
-vim.cmd([[highlight Cursor guifg=NONE guibg=#1c1c1c]])
+-- Set cursor to solid white block in all modes
+vim.o.guicursor = "n-v-c:block-Cursor,i:block-Cursor"
+
+-- Set the Cursor color to white
+vim.cmd([[highlight Cursor guifg=black guibg=white]])
+
+-- Set the Visual highlight group for selected text with lighter white
+vim.cmd([[highlight Visual guifg=NONE guibg=#cdcdcd]])
 
 -- Load the kanagawa-paper colorscheme
 vim.cmd([[colorscheme roseprime]])
