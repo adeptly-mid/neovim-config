@@ -69,22 +69,22 @@ return -- Lazy
 					reverse = false,
 				},
 				-- Options are 'borderless' or 'bordered'.
-				-- telescope = "bordered",
+				telescope = "bordered",
 			},
 
 			-- CUSTOM HIGHLIGHTS --
 			-- Override default colors
 			colors = {
-				bg = "#000000", -- less contrasting black (slightly lighter than #0e0e0e)
-				fg = "#ffffff",
-				floatborder = "#878787",
-				line = "#1c1c1c", -- slightly lighter than the background for active line highlight
+				bg = "#000000", -- Less contrasting black (slightly lighter than #0e0e0e)
+				fg = "#cdcdcd",
+				floatBorder = "#878787",
+				line = "#1c1c1c", -- Slightly lighter than the background for active line highlight
 				comment = "#646477",
-				builtin = "#a9cbcc",
-				func = "#eb9da2",
-				string = "#d6b794",
-				number = "#d6b794",
-				property = "#fcfcfc",
+				builtin = "#bad1ce",
+				func = "#be8c8c",
+				string = "#deb896",
+				number = "#d2a374",
+				property = "#c7c7d4",
 				constant = "#b4b4ce",
 				parameter = "#b9a3ba",
 				visual = "#363738",
@@ -92,7 +92,7 @@ return -- Lazy
 				warning = "#e6be8c",
 				hint = "#8ca0dc",
 				operator = "#96a3b2",
-				keyword = "#538591",
+				keyword = "#7894ab",
 				type = "#a1b3b9",
 				search = "#465362",
 				plus = "#8faf77",
