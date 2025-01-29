@@ -19,11 +19,11 @@ vim.cmd([[highlight Normal guibg=#1c1c1c]])
 -- vim.g.rasmus_bold_variables = true
 -- vim.g.rasmus_transparent = true
 
--- Set cursor to solid white block in all modes
+-- Set cursor to solid orange block in all modes
 vim.o.guicursor = "n-v-c:block-Cursor,i:block-Cursor"
 
--- Set the Cursor color to white
-vim.cmd([[highlight Cursor guifg=black guibg=white]])
+-- Set the Cursor color to orange
+vim.cmd([[highlight Cursor guifg=black guibg=orange]])
 
 -- Set the Visual highlight group for selected text with lighter white
 vim.cmd([[highlight Visual guifg=NONE guibg=#cdcdcd]])

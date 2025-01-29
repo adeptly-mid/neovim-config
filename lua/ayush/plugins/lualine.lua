@@ -7,12 +7,12 @@ return {
 		-- Define custom highlights for different components
 		local custom_theme = {
 			normal = {
-				a = { fg = "#000000", bg = "#ffffff" }, -- Mode: Black text on white background
-				b = { fg = "#ffffff", bg = "#000000" }, -- Branch: White text on black background
-				c = { fg = "#ffffff", bg = "#1a1a1a" }, -- Lighter black for other sections
+				a = { fg = "#121416", bg = "#8faf77" }, -- Mode: Dark text on greenish background
+				b = { fg = "#ffffff", bg = "#5e81ac" }, -- Branch: White text on blue-gray background
+				c = { fg = "#c8ccd4", bg = "#121416" }, -- Dark background for general sections
 			},
 			inactive = {
-				c = { fg = "#808080", bg = "#1a1a1a" }, -- Grey text for inactive
+				c = { fg = "#646477", bg = "#121416" }, -- Gray text for inactive sections
 			},
 		}
 
@@ -26,7 +26,7 @@ return {
 				globalstatus = true, -- Enables one unified lualine bar for all windows
 			},
 			sections = {
-				-- Mode with left curve and white background
+				-- Mode with left curve and greenish background
 				lualine_a = {
 					{
 						"mode",
@@ -34,7 +34,7 @@ return {
 							return string.upper(str) -- Convert mode to uppercase
 						end,
 						separator = { left = "", right = "" }, -- Curved start, no end
-						color = { fg = "#000000", bg = "#ffffff" }, -- Black text on white
+						color = { fg = "#121416", bg = "#8faf77" }, -- Dark text on green
 					},
 				},
 				-- Branch with curved edge at the end
@@ -42,22 +42,38 @@ return {
 					{
 						"branch",
 						separator = { left = "", right = "" }, -- No start, curved end
-						color = { fg = "#ffffff", bg = "#000000" }, -- White text on black
+						color = { fg = "#ffffff", bg = "#5e81ac" }, -- White text on blue-gray
 					},
 				},
-				-- Filename and components (same background for Top)
+				-- Filename and components
 				lualine_c = {
-					{ "filename", path = 1 },
-					{ "location", color = { fg = "#ffffff", bg = "#1a1a1a" } }, -- Top text with unified bg
+					{
+						"filename",
+						path = 1,
+						color = { fg = "#e5c07b", bg = "#121416" }, -- Golden text for filenames
+					},
+					{
+						"location",
+						color = { fg = "#56b6c2", bg = "#121416" }, -- Blue text for locations
+					},
 				},
-				-- Encoding and file type with lighter black background
-				lualine_x = { "encoding", "filetype" },
+				-- Encoding and file type
+				lualine_x = {
+					{
+						"encoding",
+						color = { fg = "#c8ccd4", bg = "#121416" },
+					},
+					{
+						"filetype",
+						color = { fg = "#d19a66", bg = "#121416" }, -- Orange tint for filetypes
+					},
+				},
 				-- Line numbers (right curve only, no left curve)
 				lualine_y = {
 					{
 						"progress",
 						separator = { left = "", right = "" }, -- No left curve, curved end
-						color = { fg = "#000000", bg = "#ffffff" }, -- Black text on white
+						color = { fg = "#121416", bg = "#8faf77" }, -- Dark text on green
 					},
 				},
 				-- No extra sections
@@ -66,7 +82,13 @@ return {
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { { "filename", path = 1 } },
+				lualine_c = {
+					{
+						"filename",
+						path = 1,
+						color = { fg = "#646477", bg = "#121416" },
+					},
+				},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {},
@@ -74,11 +96,5 @@ return {
 			tabline = {}, -- No tabline
 			extensions = {}, -- No additional extensions
 		})
-
-		-- Add padding to the lualine bar
-		vim.cmd([[
-      hi! LualinePadding guibg=#1a1a1a
-      autocmd VimEnter * set laststatus=3
-    ]])
 	end,
 }
