@@ -1,85 +1,80 @@
 return -- Lazy
 {
-	"cdmill/neomodern.nvim",
+	"rose-pine/neovim",
 	lazy = false,
 	priority = 1000,
+	name = "rose-pine",
 	config = function()
-		require("neomodern").setup({
-			-- MAIN OPTIONS --
-			-- Choose between 'iceclimber', 'coffeecat', 'darkforest', 'roseprime', 'daylight'
-			-- Keymap (in normal mode) to toggle between themes in theme list
-			cycle_theme_key = nil,
-			cycle_theme_list = { "iceclimber", "coffeecat", "darkforest", "roseprime", "daylight" },
-			-- Keymap (in normal mode) to toggle between light and dark mode.
-			-- Recommended to remove `daylight` from `toggle_theme_list` if you are also using
-			-- `cycle_theme_key` keymap for a more intuitive cycle behavior
-			toggle_mode_key = nil,
-			-- Don't set background
-			transparent = false,
-			-- If true, enable the terminal
-			term_colors = true,
-			-- If true, docstrings will be highlighted like strings, otherwise they will be highlighted
-			-- like comments. Note, behavior is depending on the language server.
-			colored_docstrings = true,
-			-- If false, brackets will be highlighted similar to the default fg color
-			colored_brackets = true,
-			-- Don't set background of floating windows. Recommended for when using floating windows
-			-- with borders.
-			plain_float = false,
-			-- Show the end-of-buffer tildes
-			show_eob = true,
-			-- If true, highlights {sign,fold}column the same as cursorline
-			cursorline_gutter = true,
-			diagnostics = {
-				darker = true, -- Darker colors for diagnostic
-				undercurl = true, -- Use undercurl for diagnostics
-				background = true, -- Use background color for virtual text
+		require("rose-pine").setup({
+			variant = "auto", -- auto, main, moon, or dawn
+			dark_variant = "main", -- main, moon, or dawn
+			dim_inactive_windows = false,
+			extend_background_behind_borders = true,
+			enable = {
+				terminal = true,
+				legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+				migrations = true, -- Handle deprecated options automatically
 			},
-
-			-- CODE FORMATTING --
-			-- The following table accepts values the same as the `gui` option for normal
-			-- highlights. For example, `bold`, `italic`, `underline`, `none`.
-			code_style = {
-				comments = "italic",
-				conditionals = "none",
-				functions = "none",
-				keywords = "none",
-				-- Markdown headings
-				headings = "bold",
-				operators = "none",
-				keyword_return = "none",
-				strings = "none",
-				variables = "none",
+			styles = {
+				bold = true,
+				italic = true,
+				transparency = false,
 			},
-
-			-- PLUGINS --
-			-- The following options allow for more control over some plugin appearances.
-			plugin = {
-				lualine = {
-					-- Bold lualine_a sections
-					bold = true,
-					-- Don't set section/component backgrounds. Recommended to not set
-					-- section/component separators.
-					plain = false,
-				},
-				cmp = {
-					-- Don't highlight lsp-kind items. Only the current selection will be highlighted.
-					plain = false,
-					-- Reverse lsp-kind items' highlights in cmp menu.
-					reverse = false,
-				},
-				-- Options are 'borderless' or 'bordered'.
-				telescope = "bordered",
+			groups = {
+				border = "muted",
+				link = "iris",
+				panel = "surface",
+				error = "love",
+				hint = "iris",
+				info = "foam",
+				note = "pine",
+				todo = "rose",
+				warn = "gold",
+				git_add = "foam",
+				git_change = "rose",
+				git_delete = "love",
+				git_dirty = "rose",
+				git_ignore = "muted",
+				git_merge = "iris",
+				git_rename = "pine",
+				git_stage = "iris",
+				git_text = "rose",
+				git_untracked = "subtle",
+				h1 = "iris",
+				h2 = "foam",
+				h3 = "rose",
+				h4 = "gold",
+				h5 = "pine",
+				h6 = "foam",
 			},
-
-			-- CUSTOM HIGHLIGHTS --
-			-- Override default colors
-			colors = { keyword = "#7894ab", constant = "#b4b4ce" },
-			-- Override highlight groups
-			highlights = {},
+			palette = {
+				-- Override the builtin palette per variant
+				-- moon = {
+				--     base = '#18191a',
+				--     overlay = '#363738',
+				-- },
+			},
+			highlight_groups = {
+				Cursor = { fg = "#ff9e64", bg = "#ff9e64" }, -- Set cursor to orange
+				iCursor = { fg = "#ff9e64", bg = "#ff9e64" }, -- Set insert mode cursor to orange
+				vCursor = { fg = "#ff9e64", bg = "#ff9e64" }, -- Set visual mode cursor to orange
+				lCursor = { fg = "#ff9e64", bg = "#ff9e64" }, -- Set language mode cursor to orange
+			},
+			before_highlight = function(group, highlight, palette)
+				-- Disable all undercurls
+				-- if highlight.undercurl then
+				--     highlight.undercurl = false
+				-- end
+				--
+				-- Change palette colour
+				-- if highlight.fg == palette.pine then
+				--     highlight.fg = palette.foam
+				-- end
+			end,
 		})
-		-- Convenience function that simply calls `:colorscheme <theme>` with the theme
-		-- specified in your config. If not specified, `iceclimber` is used.
-		require("neomodern").load()
+		vim.cmd("colorscheme rose-pine-moon")
+		-- vim.cmd("colorscheme rose-pine-main")
+		-- vim.cmd("colorscheme rose-pine-moon")
+		-- vim.cmd("colorscheme rose-pine-dawn")
 	end,
 }
