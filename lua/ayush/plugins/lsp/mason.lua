@@ -53,6 +53,11 @@ return {
 				"unocss",
 				"lwc_ls",
 				"templ",
+				"hydra_lsp",
+				"spectral",
+				"yamlls",
+				"lemminx",
+				"taplo",
 			},
 		})
 
