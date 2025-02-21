@@ -29,4 +29,4 @@ vim.cmd([[highlight Cursor guifg=black guibg=orange]])
 vim.cmd([[highlight Visual guifg=NONE guibg=#cdcdcd]])
 
 -- Load the kanagawa-paper colorscheme
-vim.cmd([[colorscheme roseprime]])
+vim.cmd([[colorscheme vague]])

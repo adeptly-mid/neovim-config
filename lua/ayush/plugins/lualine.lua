@@ -3,28 +3,45 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local lualine = require("lualine")
-		-- Kanagawa-inspired colors
+		-- Dragon palette
 		local colors = {
-			sumiInk1 = "#1F1F28", -- dark background
-			sumiInk2 = "#2A2A37", -- lighter background
-			oldWhite = "#C8C093", -- muted white
-			fujiWhite = "#DCD7BA", -- brighter white
-			springGreen = "#98BB6C", -- soft green
-			crystalBlue = "#7E9CD8", -- muted blue
-			autumnYellow = "#DCA561", -- warm yellow
-			sakuraPink = "#D27E99", -- soft pink
-			waveBlue = "#223249", -- dark blue
-			oniViolet = "#957FB8", -- muted purple
+			base = "#12120f", -- dragonBlack1
+			mantle = "#0d0c0c", -- dragonBlack0
+			surface1 = "#282727", -- dragonBlack4
+			surface2 = "#393836", -- dragonBlack5
+			text = "#c5c9c5", -- dragonWhite
+			subtext1 = "#a6a69c", -- dragonGray
+			blue = "#8ba4b0", -- dragonBlue2
+			violet = "#8992a7", -- dragonViolet
+			green = "#87a987", -- dragonGreen
+			yellow = "#c4b28a", -- dragonYellow
+			red = "#c4746e", -- dragonRed
+			aqua = "#8ea4a2", -- dragonAqua
+			orange = "#b6927b", -- dragonOrange
+			pink = "#a292a3", -- dragonPink
 		}
 
+		-- Custom theme using Dragon colors
 		local custom_theme = {
 			normal = {
-				a = { fg = colors.sumiInk1, bg = colors.springGreen }, -- Mode
-				b = { fg = colors.fujiWhite, bg = colors.waveBlue }, -- Branch
-				c = { fg = colors.oldWhite, bg = colors.sumiInk1 }, -- General sections
+				a = { fg = colors.base, bg = colors.violet },
+				b = { fg = colors.text, bg = colors.surface2 },
+				c = { fg = colors.text, bg = colors.base },
+			},
+			insert = {
+				a = { fg = colors.base, bg = colors.green },
+			},
+			visual = {
+				a = { fg = colors.base, bg = colors.yellow },
+			},
+			replace = {
+				a = { fg = colors.base, bg = colors.red },
+			},
+			command = {
+				a = { fg = colors.base, bg = colors.blue },
 			},
 			inactive = {
-				c = { fg = colors.sumiInk2, bg = colors.sumiInk1 },
+				c = { fg = colors.subtext1, bg = colors.base },
 			},
 		}
 
@@ -32,8 +49,8 @@ return {
 			options = {
 				theme = custom_theme,
 				icons_enabled = true,
-				section_separators = "",
-				component_separators = "",
+				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
 				disabled_filetypes = { "NvimTree", "packer" },
 				globalstatus = true,
 			},
@@ -45,42 +62,44 @@ return {
 							return string.upper(str)
 						end,
 						separator = { left = "", right = "" },
-						color = { fg = colors.sumiInk1, bg = colors.springGreen },
+						color = { fg = colors.base, bg = colors.violet },
 					},
 				},
 				lualine_b = {
 					{
 						"branch",
 						separator = { left = "", right = "" },
-						color = { fg = colors.fujiWhite, bg = colors.waveBlue },
+						color = { fg = colors.text, bg = colors.surface2 },
 					},
 				},
 				lualine_c = {
 					{
 						"filename",
 						path = 1,
-						color = { fg = colors.autumnYellow, bg = colors.sumiInk1 },
+						color = { fg = colors.yellow, bg = colors.base },
 					},
 					{
 						"location",
-						color = { fg = colors.crystalBlue, bg = colors.sumiInk1 },
+						color = { fg = colors.blue, bg = colors.base },
 					},
 				},
 				lualine_x = {
 					{
 						"encoding",
-						color = { fg = colors.oldWhite, bg = colors.sumiInk1 },
+						separator = { left = "", right = "" },
+						color = { fg = colors.subtext1, bg = colors.base },
 					},
 					{
 						"filetype",
-						color = { fg = colors.sakuraPink, bg = colors.sumiInk1 },
+						separator = { left = "", right = "" },
+						color = { fg = colors.aqua, bg = colors.base },
 					},
 				},
 				lualine_y = {
 					{
 						"progress",
 						separator = { left = "", right = "" },
-						color = { fg = colors.sumiInk1, bg = colors.springGreen },
+						color = { fg = colors.base, bg = colors.violet },
 					},
 				},
 				lualine_z = {},
@@ -92,7 +111,7 @@ return {
 					{
 						"filename",
 						path = 1,
-						color = { fg = colors.sumiInk2, bg = colors.sumiInk1 },
+						color = { fg = colors.subtext1, bg = colors.base },
 					},
 				},
 				lualine_x = {},
