@@ -3,25 +3,25 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local lualine = require("lualine")
-		-- Dragon palette
+
+		-- One Dark palette
 		local colors = {
-			base = "#12120f", -- dragonBlack1
-			mantle = "#0d0c0c", -- dragonBlack0
-			surface1 = "#282727", -- dragonBlack4
-			surface2 = "#393836", -- dragonBlack5
-			text = "#c5c9c5", -- dragonWhite
-			subtext1 = "#a6a69c", -- dragonGray
-			blue = "#8ba4b0", -- dragonBlue2
-			violet = "#8992a7", -- dragonViolet
-			green = "#87a987", -- dragonGreen
-			yellow = "#c4b28a", -- dragonYellow
-			red = "#c4746e", -- dragonRed
-			aqua = "#8ea4a2", -- dragonAqua
-			orange = "#b6927b", -- dragonOrange
-			pink = "#a292a3", -- dragonPink
+			base = "#282c34",
+			mantle = "#21252b",
+			surface1 = "#3e4451",
+			surface2 = "#4b5263",
+			text = "#abb2bf",
+			subtext1 = "#5c6370",
+			blue = "#61afef",
+			violet = "#c678dd",
+			green = "#98c379",
+			yellow = "#e5c07b",
+			red = "#e06c75",
+			aqua = "#56b6c2",
+			orange = "#d19a66",
+			pink = "#be5046",
 		}
 
-		-- Custom theme using Dragon colors
 		local custom_theme = {
 			normal = {
 				a = { fg = colors.base, bg = colors.violet },

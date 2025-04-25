@@ -22,11 +22,7 @@ vim.cmd([[highlight Normal guibg=#1c1c1c]])
 -- Set cursor to solid orange block in all modes
 vim.o.guicursor = "n-v-c:block-Cursor,i:block-Cursor"
 
--- Set the Cursor color to orange
-vim.cmd([[highlight Cursor guifg=black guibg=orange]])
-
+vim.cmd([[highlight Cursor guifg=white guibg=#78b4dc]])
 -- Set the Visual highlight group for selected text with lighter white
-vim.cmd([[highlight Visual guifg=NONE guibg=#cdcdcd]])
-
--- Load the kanagawa-paper colorscheme
-vim.cmd([[colorscheme vague]])
+vim.cmd([[highlight Visual guifg=NONE guibg=#cdcdcd]]) -- Load the kanagawa-paper colorscheme
+vim.cmd([[colorscheme roseprime]])
