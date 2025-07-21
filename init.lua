@@ -7,6 +7,8 @@ vim.o.termguicolors = true
 -- Set the background color to dark
 vim.o.background = "dark"
 
+-- Automatically reload files when they change on disk
+vim.o.autoread = true
 -- Optionally set a softer black as the background color
 vim.cmd([[highlight Normal guibg=#1c1c1c]])
 
@@ -25,4 +27,4 @@ vim.o.guicursor = "n-v-c:block-Cursor,i:block-Cursor"
 vim.cmd([[highlight Cursor guifg=white guibg=#78b4dc]])
 -- Set the Visual highlight group for selected text with lighter white
 vim.cmd([[highlight Visual guifg=NONE guibg=#cdcdcd]]) -- Load the kanagawa-paper colorscheme
-vim.cmd([[colorscheme roseprime]])
+vim.cmd([[colorscheme vague]])

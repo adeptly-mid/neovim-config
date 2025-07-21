@@ -71,6 +71,9 @@ return {
 				"eslint_d",
 				-- Add Go tools
 				"golangci_lint_ls", -- Go linter
+				"yamlfmt",
+				"yamllint",
+				"yamlfix",
 			},
 		})
 	end,
